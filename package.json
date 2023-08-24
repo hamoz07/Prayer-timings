@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "axios": "^1.4.0",
+    "bootstrap": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.6",
+    "@babel/preset-env": "^7.22.6",
+    "babel-loader": "^9.1.2",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "name": "prayer-timing",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
