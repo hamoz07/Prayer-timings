@@ -11,12 +11,11 @@ function getSala(option) {
       for (let key in allPrayersTimings) {
         let salaName = key === "Fajr" ? "../images/sunrise.png": key === "Sunrise" ? "../images/sunrise-notification.png" : key === "Dhuhr" ? "../images/sunny.png" : key === "Asr" ? "../images/weather.png" : key === "Maghrib" ? "../images/sunset.png" : key === "Isha" ? "../images/crescent-moon.png" : ""
 
-        console.log(salaName);
 
         let data = `
                   <div class="text-black" style="gap: 40px;display: grid;grid-template-columns: auto auto;">
                       <div class="data">
-                          
+                          <img src=${salaName} alt="sala-description" />
                           ${key}
                       </div>
                       <div class="data">
