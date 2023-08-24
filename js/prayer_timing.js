@@ -3,21 +3,26 @@ function getSala(option) {
   axios
     .get(`https://api.aladhan.com/v1/timingsByCity?country=EG&city=${option}`)
     .then((response) => {
-      let allPrayersTimings = response.data.timings;
-      console.log(response)
+      let allPrayersTimings = response.data.data.timings;
+      
       let rowsHolder = document.getElementById("salawat");
       rowsHolder.innerHTML = "";
 
       for (let key in allPrayersTimings) {
+        let salaName = key === "Fajr" ? "../images/sunrise.png": key === "Sunrise" ? "../images/sunrise-notification.png" : key === "Dhuhr" ? "../images/sunny.png" : key === "Asr" ? "../images/weather.png" : key === "Maghrib" ? "../images/sunset.png" : key === "Isha" ? "../images/crescent-moon.png" : ""
+
+        console.log(salaName);
+
         let data = `
-                  <div class="row border-dots">
-                      <div class="col-sm-4">
+                  <div class="text-black" style="gap: 40px;display: grid;grid-template-columns: auto auto;">
+                      <div class="data">
+                          
                           ${key}
                       </div>
-                      <div class="col-sm-4">
+                      <div class="data">
                       ${allPrayersTimings[key]}
                       </div>
-                  </div>
+              </div>
                   `;
         rowsHolder.innerHTML += data;
       }
@@ -27,7 +32,7 @@ function getSala(option) {
 getSala("Cairo")
 
 
-document.querySelector("select").addEventListener("change", (ev) => {
+document.querySelector("#select").addEventListener("change", (ev) => {
   let option = ev.target.value
 
   getSala(option);
