@@ -1,7 +1,7 @@
 
 function getSala(option) {
   axios
-    .get(`https://api.aladhan.com/v1/timingsByCity?country=EG&city=${option}`)
+    .get(`https://api.aladhan.com/v1/timingsByCity?city=${option}&country=EG&method=8`)
     .then((response) => {
       let allPrayersTimings = response.data.data.timings;
       
@@ -9,13 +9,11 @@ function getSala(option) {
       rowsHolder.innerHTML = "";
 
       for (let key in allPrayersTimings) {
-        let salaName = key === "Fajr" ? "../images/sunrise.png": key === "Sunrise" ? "../images/sunrise-notification.png" : key === "Dhuhr" ? "../images/sunny.png" : key === "Asr" ? "../images/weather.png" : key === "Maghrib" ? "../images/sunset.png" : key === "Isha" ? "../images/crescent-moon.png" : ""
-
 
         let data = `
                   <div class="text-black" style="gap: 40px;display: grid;grid-template-columns: auto auto;">
                       <div class="data">
-                          <img src=${salaName} alt="sala-description" />
+                      
                           ${key}
                       </div>
                       <div class="data">
